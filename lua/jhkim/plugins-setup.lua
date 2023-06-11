@@ -184,6 +184,9 @@ return packer.startup(function(use)
   use("sindrets/diffview.nvim")
   use("dinhhuy258/git.nvim") -- For git blame & browse
 
+  -- Trouble
+  use("folke/trouble.nvim")
+
   if packer_bootstrap then
     require("packer").sync()
   end

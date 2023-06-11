@@ -92,6 +92,7 @@ keymap.set({ "n", "v" }, "<leader>vv", [[:%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left
 
 keymap.set("n", "<leader>vo", "<cmd>e ~/.config/nvim/lua/jhkim/core/options.lua<CR>")
 keymap.set("n", "<leader>vk", "<cmd>e ~/.config/nvim/lua/jhkim/core/keymaps.lua<CR>")
+keymap.set("n", "<leader>vp", "<cmd>e ~/.config/nvim/lua/jhkim/plugins-setup.lua")
 
 ----------------------
 -- Plugin Keybinds
