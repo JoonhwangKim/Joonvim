@@ -9,7 +9,7 @@ bufferline.setup({
     mode = "buffers", -- set to "tabs" to only show tabpages instead
     style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
     themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
-    numbers = "ordinal",
+    numbers = "none",
     close_command = "bdelete! %d", -- can be a string | function, | false see "Mouse actions"
     right_mouse_command = "bdelete! %d", -- can be a string | function | false, see "Mouse actions"
     left_mouse_command = "buffer %d", -- can be a string | function, | false see "Mouse actions"
@@ -48,8 +48,8 @@ bufferline.setup({
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       local s = " "
       for e, n in pairs(diagnostics_dict) do
-        local sym = e == "error" and " " or (e == "warning" and " " or "")
-        s = s .. n .. sym
+        local sym = e == "error" and " " or (e == "warning" and " " or "󰋼")
+        s = sym .. s .. n
       end
       return s
     end,
@@ -100,7 +100,7 @@ bufferline.setup({
     -- can also be a table containing 2 custom separators
     -- [focused and unfocused]. eg: { '|', '|' }
     -- separator_style = "slant" | "slope" | "thick" | "thin" | { 'any', 'any' },
-    separator_style = "thick",
+    separator_style = "slant",
     enforce_regular_tabs = false,
     always_show_bufferline = true,
     hover = {

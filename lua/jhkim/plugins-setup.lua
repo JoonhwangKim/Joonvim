@@ -60,7 +60,7 @@ return packer.startup(function(use)
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 
   -- autocompletion
-  use("hrsh7th/nvim-cmp") -- completion plugin
+  use("hrsh7th/nvim-cmp")
   use("hrsh7th/cmp-buffer") -- source for text in buffer
   use("hrsh7th/cmp-path") -- source for file system paths
 
@@ -114,8 +114,18 @@ return packer.startup(function(use)
   use("mbbill/undotree")
 
   -- Which-key
-  use("folke/which-key.nvim")
-
+  use({
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
+  })
   -- ToggleTerm
   use({
     "akinsho/toggleterm.nvim",
@@ -136,7 +146,6 @@ return packer.startup(function(use)
   -- Indentline
   use("lukas-reineke/indent-blankline.nvim")
 
-  --  Ctrl + lh key doesn't work!
   -- use({
   --   "goolord/alpha-nvim",
   --   config = function()
@@ -145,6 +154,35 @@ return packer.startup(function(use)
   -- })
 
   use({ "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" })
+
+  -- use({
+  --   "VonHeikemen/fine-cmdline.nvim",
+  --   requires = {
+  --     { "MunifTanjim/nui.nvim" },
+  --   },
+  -- })
+
+  use("NvChad/nvim-colorizer.lua")
+
+  use({
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    -- optionally, override the default options:
+    config = function()
+      require("tailwindcss-colorizer-cmp").setup({
+        color_square_width = 2,
+        -- formatting = {
+        --   format = require("tailwindcss-colorizer-cmp").formatter,
+        -- },
+      })
+    end,
+  })
+
+  -- find repo
+  use("cljoly/telescope-repo.nvim")
+
+  -- diffview
+  use("sindrets/diffview.nvim")
+  use("dinhhuy258/git.nvim") -- For git blame & browse
 
   if packer_bootstrap then
     require("packer").sync()

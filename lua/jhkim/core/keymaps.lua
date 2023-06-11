@@ -93,10 +93,6 @@ keymap.set({ "n", "v" }, "<leader>vv", [[:%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left
 keymap.set("n", "<leader>vo", "<cmd>e ~/.config/nvim/lua/jhkim/core/options.lua<CR>")
 keymap.set("n", "<leader>vk", "<cmd>e ~/.config/nvim/lua/jhkim/core/keymaps.lua<CR>")
 
-vim.keymap.set("n", "<leader><leader>", function()
-  vim.cmd("so")
-end)
-
 ----------------------
 -- Plugin Keybinds
 ----------------------
@@ -107,25 +103,14 @@ keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window max
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 
--- telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fg", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>fr", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>") -- list available help tags
-
--- telescope git commands (not on youtube nvim video)
-keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
-keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
-keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
-keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
-
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
 -- undotree
-keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "UndoTree" })
 
 -- Markdown Preview
 keymap.set("n", "<leader>vm", "<Plug>MarkdownPreviewToggle")
+
+-- cmdline
+-- vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
