@@ -12,13 +12,13 @@ keymap.set("i", "jk", "<ESC>")
 
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
+keymap.set("n", "_", "<C-x>")
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- clear search highlights
-keymap.set("n", "<leader>nh", ":nohl<CR>")
+-- keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
@@ -35,10 +35,10 @@ keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 -- Better window navigation
-keymap.set("n", "<C-h>", "<C-w>h")
-keymap.set("n", "<C-j>", "<C-w>j")
-keymap.set("n", "<C-k>", "<C-w>k")
-keymap.set("n", "<C-l>", "<C-w>l")
+-- keymap.set("n", "<C-h>", "<C-w>h")
+-- keymap.set("n", "<C-j>", "<C-w>j")
+-- keymap.set("n", "<C-k>", "<C-w>k")
+-- keymap.set("n", "<C-l>", "<C-w>l")
 --
 -- Better window navigation with Tmux
 -- keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
@@ -69,8 +69,8 @@ keymap.set("v", ">", ">gv") -- Left Indentation
 -- Experimental
 keymap.set("", "<esc>", ":nohlsearch<cr>") -- esc to nohlsearch
 
-keymap.set("n", "<space>s", ":w<CR>") -- Save
-keymap.set("n", "<space>d", ":bd<CR>") -- Buffer clos
+-- keymap.set("n", "<space>s", ":w<CR>") -- Save
+-- keymap.set("n", "<space>d", ":bd<CR>") -- Buffer clos
 keymap.set("n", "<space>q", ":q<CR>") -- exit
 keymap.set("n", "<space>Q", ":q!<CR>") -- force exit
 
@@ -90,9 +90,11 @@ keymap.set({ "n", "i" }, "<C-c>", "<Esc>")
 keymap.set({ "n", "v" }, "<leader>vs", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap.set({ "n", "v" }, "<leader>vv", [[:%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Fast Access file list
 keymap.set("n", "<leader>vo", "<cmd>e ~/.config/nvim/lua/jhkim/core/options.lua<CR>")
 keymap.set("n", "<leader>vk", "<cmd>e ~/.config/nvim/lua/jhkim/core/keymaps.lua<CR>")
 keymap.set("n", "<leader>vp", "<cmd>e ~/.config/nvim/lua/jhkim/plugins-setup.lua")
+keymap.set("n", "<leader>vy", "<cmd>e ~/.config/skhd/skhdrc")
 
 ----------------------
 -- Plugin Keybinds

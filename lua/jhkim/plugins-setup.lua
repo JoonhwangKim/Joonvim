@@ -33,9 +33,28 @@ return packer.startup(function(use)
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
-  use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
+  -- colorscheme
+  -- use("bluz71/vim-nightfly-guicolors")
+  use({ "ellisonleao/gruvbox.nvim" })
 
-  use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+  -- use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+  use({
+    "alexghergh/nvim-tmux-navigation",
+    config = function() -- neovim-tmux navigation (replace vim-tmux-navigator)
+      local nvim_tmux_nav = require("nvim-tmux-navigation")
+
+      nvim_tmux_nav.setup({
+        disable_when_zoomed = true, -- defaults to false
+      })
+
+      vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+      vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+      vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+      vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+      vim.keymap.set("n", "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
+      vim.keymap.set("n", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
+    end,
+  })
 
   use("szw/vim-maximizer") -- maximizes and restores current window
 
@@ -106,6 +125,8 @@ return packer.startup(function(use)
 
   -- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+  use("dinhhuy258/git.nvim") -- For git blame & browse
+  use("sindrets/diffview.nvim")
 
   -- bufferline
   use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
@@ -146,13 +167,15 @@ return packer.startup(function(use)
   -- Indentline
   use("lukas-reineke/indent-blankline.nvim")
 
-  -- use({
-  --   "goolord/alpha-nvim",
-  --   config = function()
-  --     require("alpha").setup(require("alpha.themes.dashboard").config)
-  --   end,
-  -- })
+  -- Alpha
+  use({
+    "goolord/alpha-nvim",
+    config = function()
+      require("alpha").setup(require("alpha.themes.dashboard").config)
+    end,
+  })
 
+  -- word group marker
   use({ "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" })
 
   -- use({
@@ -179,10 +202,6 @@ return packer.startup(function(use)
 
   -- find repo
   use("cljoly/telescope-repo.nvim")
-
-  -- diffview
-  use("sindrets/diffview.nvim")
-  use("dinhhuy258/git.nvim") -- For git blame & browse
 
   -- Trouble
   use("folke/trouble.nvim")

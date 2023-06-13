@@ -32,7 +32,7 @@ telescope.load_extension("repo")
 
 -- telescope
 -- keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-vim.keymap.set("n", "<leader>f", function()
+vim.keymap.set("n", "<C-p>", function()
   local _, ret, _ = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" })
   if ret == 0 then
     builtin.git_files()
