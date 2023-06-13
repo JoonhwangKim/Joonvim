@@ -3,23 +3,23 @@ local dashboard = require("alpha.themes.dashboard")
 
 -- Set header
 dashboard.section.header.val = {
-  "                                            ",
-  "  ███████╗██████╗  █████╗ ███████╗███████╗  ",
-  "  ██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝  ",
-  "  ███████╗██████╔╝███████║███████╗███████╗  ",
-  "  ╚════██║██╔═══╝ ██╔══██║╚════██║╚════██║  ",
-  "  ███████║██║     ██║  ██║███████║███████║  ",
-  "  ╚══════╝╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝  ",
-  "                                            ",
+  "                                                ",
+  "    ███████╗██████╗  █████╗ ███████╗███████╗    ",
+  "    ██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝    ",
+  "    ███████╗██████╔╝███████║███████╗███████╗    ",
+  "    ╚════██║██╔═══╝ ██╔══██║╚════██║╚════██║    ",
+  "    ███████║██║     ██║  ██║███████║███████║    ",
+  "    ╚══════╝╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝    ",
+  "                                                ",
 }
 
 -- Set menu
 dashboard.section.buttons.val = {
   dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
   dashboard.button("Ctrl-p", "  > Find file", "Telescope find_files<CR>"),
-  dashboard.button("Ctrl-f", "  > Find word", "Telescope live_grep<CR>"),
-  dashboard.button("SPC s b", "  > Recent", ":Telescope oldfiles<CR>"),
-  dashboard.button("SPC s r", "  > Git Repo", ":Telescope repo<CR>"),
+  dashboard.button("SPC f w", "  > Find word", "Telescope live_grep<CR>"),
+  dashboard.button("SPC f o", "  > Oldfiles", ":Telescope oldfiles<CR>"),
+  dashboard.button("SPC f r", "  > Git Repo", ":Telescope repo<CR>"),
   dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
 }
 
@@ -29,8 +29,8 @@ local function pick_color()
 end
 
 local function footer()
-  local golden_saying = "Do or do not. There is no try -Yoda- \n\n"
-  local datetime = os.date(" %Y-%d-%m   %H:%M:%S")
+  local golden_saying = "Do or do not. There is no try -Yoda- \n \n"
+  local datetime = os.date(" %Y-%m-%d   %H:%M:%S")
   local version = vim.version()
   local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch .. "\n"
 

@@ -25,6 +25,18 @@ telescope.setup({
       },
     },
   },
+  extensions = {
+    repo = {
+      list = {
+        fd_opts = {
+          "--no-ignore-vcs",
+        },
+        search_dirs = {
+          "~/workspace",
+        },
+      },
+    },
+  },
 })
 
 telescope.load_extension("fzf")
@@ -44,14 +56,15 @@ vim.keymap.set("n", "<C-p>", function()
   end
 end)
 
-vim.keymap.set("n", "<C-f>", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-vim.keymap.set("n", "<leader>sg", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-vim.keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
-vim.keymap.set("n", "<leader>sh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-vim.keymap.set("n", "<leader>sk", "<cmd>Telescope keymaps<cr>") -- list available help tags
+vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
+vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
+vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>") -- list available help tags
+vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>") -- list available help tags
 
 -- repo keymap
-vim.keymap.set("n", "<leader>sr", "<Cmd>Telescope repo list<CR>")
+vim.keymap.set("n", "<leader>fr", "<cmd>Telescope repo list<cr>")
 
 -- telescope git commands (not on youtube nvim video)
 vim.keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]

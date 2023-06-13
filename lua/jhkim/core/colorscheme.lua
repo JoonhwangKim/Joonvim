@@ -19,4 +19,3 @@ gruvbox.setup({
 
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
--- vim.cmd([[hi normal ctermbg=NONE guibd=NONE]])
